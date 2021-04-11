@@ -1,10 +1,12 @@
 <?php
+session_start();
     // Model
     require('../model/database.php');
     require('../model/vehicle_db.php');
     require('../model/type_db.php');
     require('../model/class_db.php');
     require('../model/make_db.php');
+    include('../model/admin_db.php');
 
     // Get required data from Model
     $makes = get_makes();
@@ -36,6 +38,10 @@
     $year = filter_input(INPUT_POST, 'year', FILTER_VALIDATE_INT);
     $model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_STRING);
     $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_INT);
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+    $confirm_password = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_STRING);
+
 
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
     if (!$action) {
@@ -45,7 +51,16 @@
         }
     }
 
+
+ 
+
     // Router - take action based on $action parameter received
+     if ($action === 'login' || 
+        $action === 'show_login' || 
+        $action === 'register' ||
+        $action === 'show_register' || 
+        $action === 'logout') include('admin.php'); 
+
     if ($action === 'add_make' ||
         $action === 'delete_make' ||
         $action === 'list_makes') include('controllers/makes.php');

@@ -22,6 +22,7 @@
 
 <footer>
     <p>&copy; <?= date("Y"); ?> Zippy Used Autos</p>
+    <p><a href="index.php?action=show_register">Register</a></p>
 </footer>
 </main>
 </body>

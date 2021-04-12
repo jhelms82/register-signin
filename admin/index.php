@@ -59,7 +59,7 @@ session_start();
         $action === 'show_login' || 
         $action === 'register' ||
         $action === 'show_register' || 
-        $action === 'logout') include('admin.php'); 
+        $action === 'logout') include('controllers/admin.php'); 
 
     if ($action === 'add_make' ||
         $action === 'delete_make' ||

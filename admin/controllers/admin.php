@@ -1,5 +1,7 @@
 <?php
- include('../../model/admin_db.php');
+ require_once('../../model/admin_db.php');
+
+ session_start();
 // If the user isn't logged in, force the user to login
 if (!isset($_SESSION['is_valid_admin'])) {
     $action = 'login';
@@ -11,21 +13,21 @@ if (!isset($_SESSION['is_valid_admin'])) {
         $username = filter_input(INPUT_POST, 'username');
         $password = filter_input(INPUT_POST, 'password');
         if (is_valid_admin_login($username, $password)) {
-            $_SESSION['is_valid_admin'] = true;
-            include('view/admin_vehicle_list.php');
+            $_SESSION['is_valid_admin'] = valid_username($username);
+            include('.?action=list_vehicles');
         } else {
             $login_message = 'You must login to view this page.';
             include('../view/login.php');
         }
         break;
     case 'show_login':
-        include('../view/login.php');
+        include('view/login.php');
         break;
 
     
     case 'register':
-                $username = filter_input(INPUT_POST, 'username');
-        $password = filter_input(INPUT_POST, 'password');
+        //         $username = filter_input(INPUT_POST, 'username');
+        // $password = filter_input(INPUT_POST, 'password');
     //     include('/util/valid_register.php')
     //     if (valid_registration($username)){
     //     include('/util/valid_register.php');
@@ -41,15 +43,19 @@ if (!isset($_SESSION['is_valid_admin'])) {
   include('util/valid_admin.php');
   valid_registration($username, $password, $confirm_password);
   if ($error) {
-      include('/view/register.php');
+      include('view/register.php');
     }  else  
           {
-              $_SESSION['is_valid_admin'] = add_admin($username, $password);
+              $_SESSION['is_valid_admin'] = true;
               include('view/vehicle_list.php');
           }
         
     
   break;
+
+      case 'show_register':
+        include('../view/register.php');
+        break;
     case 'logout':
         $_SESSION = array();   // Clear all session data from memory
         session_destroy();     // Clean up the session ID

@@ -1,6 +1,6 @@
 <?php
     // require_once('util/secure_conn.php');  // require a secure connection
-    include('../../model/admin_db.php');
+    require_once('../../model/admin_db.php');
 ?>
 <!DOCTYPE html>
 <html>

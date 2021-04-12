@@ -1,14 +1,14 @@
 <?php
     //local development server connection
-    $dsn = 'mysql:host=localhost;dbname=zippy';
-    $username = 'root';
-    $password = 'sesame';
+//    $dsn = 'mysql:host=localhost;dbname=zippy';
+//    $username = 'root';
+//    $password = 'sesame';
 
     // Heroku connection
     
-    // $dsn = 'mysql:host=eyw6324oty5fsovx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=kapejzcteqfo95k9';
-    // $username = 'szh6s65ahmhfewmb';
-    // $password = 'rz51jf40ix551ije'; 
+     $dsn = 'mysql:host=eyw6324oty5fsovx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=kapejzcteqfo95k9';
+     $username = 'szh6s65ahmhfewmb';
+     $password = 'rz51jf40ix551ije';
     
     try {
         //local development server connection

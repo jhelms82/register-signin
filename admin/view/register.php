@@ -12,13 +12,13 @@ include('../../view/header.php');
          <input type="hidden" name="action" value="register">
 
         <label>Username:</label>
-        <input type="text" name="username" value="<?php echo htmlspecialchars($username); ?>"><br>
+        <input type="text" name="username" ><br>
 
         <label>Password:</label>
-        <input type="password" name="password" value="<?php echo htmlspecialchars($password['password']); ?>"><br>
+        <input type="password" name="password"><br>
 
         <label>Confirm Password:</label>
-        <input type="password" name="confirm_password" value="<?php echo htmlspecialchars($confirm_password['confirm_password']); ?>"><br>
+        <input type="password" name="confirm_password"><br>
 
          <input type="submit" value="register">
     </form>

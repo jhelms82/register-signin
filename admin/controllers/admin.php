@@ -1,5 +1,5 @@
 <?php
- require_once('../../model/admin_db.php');
+//  require_once('../../model/admin_db.php');
 
  session_start();
 // If the user isn't logged in, force the user to login
@@ -10,14 +10,12 @@ if (!isset($_SESSION['is_valid_admin'])) {
 
     switch($action) {
     case 'login':
-        $username = filter_input(INPUT_POST, 'username');
-        $password = filter_input(INPUT_POST, 'password');
         if (is_valid_admin_login($username, $password)) {
-            $_SESSION['is_valid_admin'] = valid_username($username);
+            $_SESSION['is_valid_admin'] = true;
             include('.?action=list_vehicles');
         } else {
             $login_message = 'You must login to view this page.';
-            include('../view/login.php');
+            include('view/login.php');
         }
         break;
     case 'show_login':

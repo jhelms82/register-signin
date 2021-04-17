@@ -6,7 +6,7 @@ session_start();
     require('../model/type_db.php');
     require('../model/class_db.php');
     require('../model/make_db.php');
-    include('../model/admin_db.php');
+    require('../model/admin_db.php');
 
     // Get required data from Model
     $makes = get_makes();
@@ -38,8 +38,8 @@ session_start();
     $year = filter_input(INPUT_POST, 'year', FILTER_VALIDATE_INT);
     $model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_STRING);
     $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_INT);
-    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+$username = $_POST["username"];
+$password = $_POST["password"];
     $confirm_password = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_STRING);
 
 

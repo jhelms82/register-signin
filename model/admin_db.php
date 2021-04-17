@@ -27,15 +27,6 @@ function is_valid_admin_login($username, $password) {
 }
 
 
-function valid_registration($username) {
-    global $db;
-    $statement = $db->prepare("SELECT username FROM administrators WHERE username = :username");
-    $statement->bindParam(':username', $username);
-    $statement->execute();
-
-    if($statement->rowCount() > 0){
-       return true;
-    } else {
-       return false;
-    }
-}
+function username_exists($username) {
+            array_push($errors, "The username you entered is already taken.");
+        }

@@ -1,6 +1,6 @@
 <?php
 // include('/util/valid_admin.php');
-require_once('util/valid_admin.php');
+require('C:\XAMPP\htdocs\zippy\admin\util\valid_register.php');
 ?>
 
 <!DOCTYPE html>
